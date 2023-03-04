@@ -1,0 +1,36 @@
+﻿@using CapaEntidad;
+@model UsuarioCLS
+
+
+<div class="card">
+    <div class="card-header">
+        Cambiar Contraseña
+    </div>
+    <div class="card-body">
+
+
+        <form asp-action="CambiarContrasena" asp-controller="Usuario" method="post">
+
+            <input asp-for="idUsuario" type="hidden" class="form-control">
+            <div class="mb-3">
+                <label class="form-label">Nueva Contraseña</label>
+                <input asp-for="clave" type="password" class="form-control" required>
+                <span asp-validation-for="clave" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="Index" asp-controller="Usuario" class="btn btn-warning">Volver a Inicio</a>
+
+            @if (ViewData["Mensaje"] != null)
+            {
+
+                <div class="form-group">
+                    <div class="alert alert-danger" role="alert">
+                        @ViewData["Mensaje"]
+                    </div>
+                </div>
+            }
+
+        </form>
+    </div>
+</div>
+

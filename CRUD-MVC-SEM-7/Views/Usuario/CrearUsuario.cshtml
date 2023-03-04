@@ -1,0 +1,49 @@
+﻿@using CapaEntidad;
+@model UsuarioCLS
+<div class="card">
+    <div class="card-header">
+        Crear Contacto
+    </div>
+    <div class="card-body">
+
+
+        <form asp-action="CrearUsuario" asp-controller="Usuario" method="post">
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input asp-for="nombreusuario" type="text" class="form-control">
+                <span asp-validation-for="nombreusuario" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Correo: </label>
+                <input asp-for="correo" type="email" class="form-control">
+                <span asp-validation-for="correo" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Clave</label>
+                <input asp-for="clave" type="password" class="form-control">
+                <span asp-validation-for="clave" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Rol</label>
+                <select asp-for="rol" class="form-control">
+                    <option value="Administrador">Administrador</option>
+                    <option value="Suscriptor">Suscriptor</option>
+                </select>
+                <span asp-validation-for="rol" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="Index" asp-controller="Usuario" class="btn btn-warning">Volver a la lista</a>
+
+            @if (ViewData["Mensaje"] != null)
+            {
+
+                <div class="form-group">
+                    <div class="alert alert-danger" role="alert">
+                        @ViewData["Mensaje"]
+                    </div>
+                </div>
+            }
+
+        </form>
+    </div>
+</div>

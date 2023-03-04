@@ -1,0 +1,35 @@
+﻿@using CapaEntidad;
+@model UsuarioCLS
+
+<div class="card">
+    <div class="card-header">
+        Eliminar Usuario
+    </div>
+    <div class="card-body">
+
+
+        <form asp-action="Eliminar" asp-controller="Usuario" method="post">
+
+            <input asp-for="idUsuario" type="hidden" class="form-control">
+
+            <div class="alert alert-danger" role="alert">
+                ¿Desea eliminar el Usuario : @Html.DisplayTextFor(m => m.nombreusuario) ?
+            </div>
+
+            <button type="submit" class="btn btn-danger">Elimnar</button>
+            <a asp-action="Index" asp-controller="Usuario" class="btn btn-warning">Volver a la lista</a>
+            @if (ViewData["Mensaje"] != null)
+            {
+
+                <div class="form-group">
+                    <div class="alert alert-danger" role="alert">
+                        @ViewData["Mensaje"]
+                    </div>
+                </div>
+            }
+
+        </form>
+
+
+    </div>
+</div>
