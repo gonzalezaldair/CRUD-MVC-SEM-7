@@ -11,7 +11,7 @@ namespace CapaDatos
 
             var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build();
 
-            cadenaSQL = builder.GetSection("ConnectionStrings:CadenaSQL").Value;
+            cadenaSQL = builder.GetSection("ConnectionStrings:AZURE_SQL_CONNECTIONSTRING").Value;
         }
 
         public string getCadenaSQL()
